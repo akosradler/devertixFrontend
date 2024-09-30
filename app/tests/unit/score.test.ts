@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 import { Question } from "~/model/question";
 import { UserAnswers } from "~/model/userAnswers";
-import { calculateInitialValues } from "~/utils/initialValue";
+import { describe, it, expect } from "vitest";
 import { calculateUserScore } from "~/utils/score";
 
 describe("Score utils tests", () => {

@@ -1,6 +1,7 @@
 import { v4 } from "uuid";
 import { Question } from "~/model/question";
 import { calculateInitialValues } from "~/utils/initialValue";
+import { describe, it, expect } from "vitest";
 
 describe("InitialValue utils tests", () => {
   it("should create an object map out of a question array", () => {
