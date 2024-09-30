@@ -32,10 +32,10 @@ export const TriviaTrueFalse = ({
         <Typography variant="h5">{question.question}</Typography>
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} width={"300px"}>
-        <Button variant="outlined" onClick={() => handleClick(false)}>
+        <Button data-cy="button-false" variant="outlined" onClick={() => handleClick(false)}>
           FALSE
         </Button>
-        <Button variant="outlined" onClick={() => handleClick(true)}>
+        <Button data-cy="button-true" variant="outlined" onClick={() => handleClick(true)}>
           TRUE
         </Button>
       </Box>

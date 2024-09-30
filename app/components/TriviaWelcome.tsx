@@ -15,7 +15,9 @@ export const TriviaWelcome = () => {
       <Box mb={12} textAlign="center">
         <Typography variant="h5">Can you score 100%?</Typography>
       </Box>
-      <Button onClick={() => navigate("/trivia")}>BEGIN</Button>
+      <Button data-cy="button-begin" onClick={() => navigate("/trivia")}>
+        BEGIN
+      </Button>
     </Box>
   );
 };

@@ -20,7 +20,7 @@ export const TriviaResults = ({ questions }: { questions: Array<Question> }) => 
   return (
     <Box display={"flex"} flexDirection={"column"} alignItems={"center"} mt={6}>
       <Box mb={6} display={"flex"} flexDirection="column" alignItems="center">
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        <Typography data-cy="text-score" variant="h5" sx={{ fontWeight: "bold" }}>
           You Scored
         </Typography>
         <Typography variant="h5" sx={{ fontWeight: "bold" }}>{`${userScore} / ${questions.length}`}</Typography>
@@ -33,7 +33,7 @@ export const TriviaResults = ({ questions }: { questions: Array<Question> }) => 
           </ListItem>
         ))}
       </List>
-      <Button variant="outlined" onClick={handleResetForm}>
+      <Button data-cy="button-play_again" variant="outlined" onClick={handleResetForm}>
         PLAY AGAIN?
       </Button>
     </Box>
