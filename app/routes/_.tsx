@@ -1,4 +1,4 @@
-import { Box, CssBaseline, ThemeProvider, useTheme } from "@mui/material";
+import { Box, Container, CssBaseline, ThemeProvider, useTheme } from "@mui/material";
 import { type MetaFunction } from "@remix-run/node";
 import { Outlet } from "@remix-run/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -16,9 +16,11 @@ export default function Index() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box display={"flex"} alignItems={"center"} flexDirection={"column"} justifyContent={"center"}>
-          <Outlet />
-        </Box>
+        <Container maxWidth="md">
+          <Box display={"flex"} alignItems={"center"} flexDirection={"column"} justifyContent={"center"}>
+            <Outlet />
+          </Box>
+        </Container>
       </ThemeProvider>
     </QueryClientProvider>
   );
