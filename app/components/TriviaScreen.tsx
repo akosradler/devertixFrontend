@@ -4,12 +4,12 @@ import { Question } from "~/model/question";
 import { TriviaForm } from "./TriviaForm";
 import { Formik } from "formik";
 import { TriviaResults } from "./TriviaResults";
+import { calculateInitialValues } from "~/utils/initialValue";
 
 export const TriviaScreen = ({ questions }: { questions: Array<Question> }) => {
   const [showResults, setShowResults] = useState(false);
 
-  // @ts-ignore
-  const [initialValues] = useState(questions.reduce((acc, curr) => ((acc[curr.id] = null), acc), {}));
+  const [initialValues] = useState(calculateInitialValues(questions));
 
   return (
     <>

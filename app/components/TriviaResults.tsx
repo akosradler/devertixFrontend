@@ -5,15 +5,13 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { useFormikContext } from "formik";
 import { useNavigate } from "@remix-run/react";
+import { calculateUserScore } from "~/utils/score";
+import { UserAnswers } from "~/model/userAnswers";
 
 export const TriviaResults = ({ questions }: { questions: Array<Question> }) => {
   const navigate = useNavigate();
-  const { values: userAnswers } = useFormikContext<Record<string, boolean | null>>();
-  const [userScore] = useState(
-    questions.reduce((acc, curr) => {
-      return acc + Number(userAnswers[curr.id] === curr.answer);
-    }, 0),
-  );
+  const { values: userAnswers } = useFormikContext<UserAnswers>();
+  const [userScore] = useState(calculateUserScore(questions, userAnswers));
 
   const handleResetForm = () => {
     navigate("/");
