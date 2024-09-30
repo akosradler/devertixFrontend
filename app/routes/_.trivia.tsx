@@ -15,7 +15,7 @@ export default function TriviaPage() {
     error,
     data: questions,
   } = useQuery<Array<Question>>({
-    queryKey: ["machines"],
+    queryKey: ["questions"],
     queryFn: () => fetch(`${BASE_URL}/question`).then(res => res.json()),
   });
 

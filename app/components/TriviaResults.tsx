@@ -4,15 +4,11 @@ import { Question } from "~/model/question";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { useFormikContext } from "formik";
+import { useNavigate } from "@remix-run/react";
 
-export const TriviaResults = ({
-  questions,
-  setShowResults,
-}: {
-  questions: Array<Question>;
-  setShowResults: (showResults: boolean) => void;
-}) => {
-  const { values: userAnswers, resetForm } = useFormikContext<Record<string, boolean | null>>();
+export const TriviaResults = ({ questions }: { questions: Array<Question> }) => {
+  const navigate = useNavigate();
+  const { values: userAnswers } = useFormikContext<Record<string, boolean | null>>();
   const [userScore] = useState(
     questions.reduce((acc, curr) => {
       return acc + Number(userAnswers[curr.id] === curr.answer);
@@ -20,7 +16,7 @@ export const TriviaResults = ({
   );
 
   const handleResetForm = () => {
-    resetForm(), setShowResults(false);
+    navigate("/");
   };
 
   return (
@@ -39,12 +35,7 @@ export const TriviaResults = ({
           </ListItem>
         ))}
       </List>
-      <Button
-        variant="outlined"
-        onClick={() => {
-          handleResetForm();
-        }}
-      >
+      <Button variant="outlined" onClick={handleResetForm}>
         PLAY AGAIN?
       </Button>
     </Box>

@@ -15,11 +15,7 @@ export const TriviaScreen = ({ questions }: { questions: Array<Question> }) => {
     <>
       <Formik initialValues={initialValues} onSubmit={() => setShowResults(true)}>
         {form =>
-          showResults ? (
-            <TriviaResults questions={questions} setShowResults={setShowResults} />
-          ) : (
-            <TriviaForm form={form} questions={questions} />
-          )
+          showResults ? <TriviaResults questions={questions} /> : <TriviaForm form={form} questions={questions} />
         }
       </Formik>
     </>
