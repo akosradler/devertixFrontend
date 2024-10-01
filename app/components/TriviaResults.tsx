@@ -1,8 +1,7 @@
 import { Box, Button, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { useState } from "react";
 import { Question } from "~/model/question";
-import { FaPlus } from "react-icons/fa";
-import { FaMinus } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import { useFormikContext } from "formik";
 import { useNavigate } from "@remix-run/react";
 import { calculateUserScore } from "~/utils/score";
